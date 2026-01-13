@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manal... Suno Na 🤍</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pastel-pink: #ffd6e7;
+            --soft-lavender: #e6e6ff;
+            --warm-beige: #f9f3e9;
+            --soft-white: #fffaf9;
+            --gentle-gray: #8a8a8a;
+            --text-color: #5a4a42;
+            --accent-color: #d8a8b8;
+            --shadow: rgba(216, 168, 184, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--pastel-pink) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, var(--soft-lavender) 0%, transparent 20%);
+            background-attachment: fixed;
+        }
+
+        /* Soft fade-in animation for entire page */
+        @keyframes gentleFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            animation: gentleFadeIn 2s ease-out;
+        }
+
+        /* Section styles */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .hero-heading {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1.5s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .hero-subtext {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 1.5s ease forwards;
+            animation-delay: 0.8s;
+            font-weight: 300;
+        }
+
+        /* Heartbeat animation for flower emoji */
+        @keyframes gentleBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .flower-emoji {
+            display: inline-block;
+            animation: gentleBeat 2s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        /* Message Section */
+        .message-box {
+            background-color: var(--warm-beige);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s ease forwards;
+            animation-delay: 0.5s;
+            border: 1px solid rgba(216, 168, 184, 0.2);
+        }
+
+        .message-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .message-text.urdu-style {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .message-text.english-style {
+            margin-top: 1.5rem;
+            color: var(--gentle-gray);
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        /* Apology Card */
+        .apology-card {
+            background: var(--soft-white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 8px 25px var(--shadow);
+            position: relative;
+            border-left: 5px solid var(--accent-color);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s ease forwards;
+            animation-delay: 0.7s;
+        }
+
+        .apology-card:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--soft-white);
+            transform: rotate(45deg);
+            border-left: 1px solid var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .handwritten-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Interactive Section */
+        .interaction-container {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .gentle-button {
+            background-color: var(--warm-beige);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .gentle-button:hover {
+            background-color: var(--accent-color);
+            color: var(--soft-white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(216, 168, 184, 0.3);
+        }
+
+        @keyframes softGlow {
+            0%, 100% { box-shadow: 0 5px 15px var(--shadow); }
+            50% { box-shadow: 0 5px 25px rgba(216, 168, 184, 0.4); }
+        }
+
+        .gentle-button.active {
+            animation: softGlow 2s infinite;
+        }
+
+        .response-message {
+            font-size: 1.1rem;
+            color: var(--gentle-gray);
+            font-style: italic;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .response-message.show {
+            opacity: 1;
+        }
+
+        /* Promise Section */
+        .promise-container {
+            text-align: center;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .promise-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            background-color: var(--warm-beige);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px dashed var(--accent-color);
+        }
+
+        /* Closing Section */
+        .closing-container {
+            text-align: center;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .closing-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-family: 'Dancing Script', cursive;
+            color: var(--accent-color);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--gentle-gray);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(216, 168, 184, 0.2);
+        }
+
+        /* Floating line */
+        .floating-line {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gentle-gray);
+            font-style: italic;
+            opacity: 0;
+            animation: fadeInLine 3s ease forwards;
+            animation-delay: 4s;
+            z-index: -1;
+        }
+
+        @keyframes fadeInLine {
+            to { opacity: 0.7; }
+        }
+
+        /* Music Toggle */
+        .music-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--warm-beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px var(--shadow);
+            z-index: 100;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(216, 168, 184, 0.2);
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-color);
+            color: var(--soft-white);
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background-color: var(--accent-color);
+            z-index: 100;
+            transition: width 0.3s ease;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .hero-heading {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .message-box, .apology-card {
+                padding: 1.8rem;
+            }
+            
+            .handwritten-text {
+                font-size: 1.5rem;
+            }
+            
+            .message-text {
+                font-size: 1.1rem;
+            }
+            
+            .closing-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-heading {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtext {
+                font-size: 1.1rem;
+            }
+            
+            .gentle-button {
+                font-size: 1.1rem;
+                padding: 0.9rem 2rem;
+            }
+            
+            .floating-line {
+                bottom: 20px;
+                font-size: 0.8rem;
+                padding: 0 1rem;
+            }
+        }
+
+        /* Staggered animation for elements within sections */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .stagger-item:nth-child(1) { animation: slideUpFade 1s ease forwards 0.3s; }
+        .stagger-item:nth-child(2) { animation: slideUpFade 1s ease forwards 0.5s; }
+        .stagger-item:nth-child(3) { animation: slideUpFade 1s ease forwards 0.7s; }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Music Toggle -->
+    <div class="music-toggle" id="musicToggle">
+        <i class="fas fa-music" id="musicIcon"></i>
+    </div>
+    
+    <!-- Floating Line -->
+    <div class="floating-line" id="floatingLine">
+        Best friends deserve patience 🤍
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1 class="hero-heading">Manal… suno na <span class="flower-emoji">🌸</span></h1>
+        <p class="hero-subtext">Agar maine kabhi tumhein hurt kiya ho, toh dil se sorry…</p>
+    </section>
+
+    <!-- Honest Message Section -->
+    <section id="message">
+        <h2 class="section-title">From the Heart</h2>
+        <div class="message-box">
+            <p class="message-text urdu-style">
+                Tum sirf meri best friend nahi ho,<br>
+                tum woh ho jo har waqt meri life ka sukoon rahi ho.<br>
+                Agar meri kisi baat, mazak, ya behavior se<br>
+                tumhein dukh pohancha hai,<br>
+                toh yaqeen karo woh kabhi meri intention nahi thi.
+            </p>
+            <p class="message-text english-style">
+                You're not just my best friend,<br>
+                you're the one who has always been the peace in my life.<br>
+                If my words, jokes, or behavior ever hurt you,<br>
+                please believe that was never my intention.
+            </p>
+        </div>
+    </section>
+
+    <!-- Apology From the Heart -->
+    <section id="apology">
+        <h2 class="section-title">An Apology</h2>
+        <div class="apology-card">
+            <p class="handwritten-text">
+                I'm really sorry Manal 🤍<br><br>
+                Tumhari khamoshi mujhy zyada hurt karti hai<br>
+                kaysa ke tumhara gussa.<br><br>
+                I miss our conversations, laughs,<br>
+                aur woh comfort jo sirf best friends ke beech hota hai.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gentle Interaction Section -->
+    <section id="interaction">
+        <h2 class="section-title">A Gentle Ask</h2>
+        <div class="interaction-container">
+            <button class="gentle-button" id="gentleButton">
+                Can we be okay again? <span class="flower-emoji">🌸</span>
+            </button>
+            <div class="response-message" id="responseMessage"></div>
+        </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section id="promise">
+        <h2 class="section-title">My Promise</h2>
+        <div class="promise-container">
+            <div class="promise-text">
+                Main perfect nahi hoon,<br>
+                lekin main poori koshish karunga<br>
+                ke dobara tumhein kabhi hurt na karoon.
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Note -->
+    <section id="closing">
+        <div class="closing-container">
+            <p class="closing-text">
+                Manal, agar thora sa bhi mann ho…<br>
+                ek smile ya ek reply hi kaafi hai 🤍
+            </p>
+            <div class="footer-text">
+                From someone who truly values you — Shayan
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/9a8e9d6a7a.js" crossorigin="anonymous"></script>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Page loaded for Manal 🤍");
+            
+            // Initialize components
+            initMusicToggle();
+            initGentleButton();
+            initScrollProgress();
+            showFloatingLine();
+            
+            // Set up staggered animations for elements
+            setupStaggerAnimations();
+            
+            // Add a gentle message in console
+            console.log("Koi pressure nahi Manal, bas dil ki baat thi.");
+        });
+
+        // Music toggle functionality
+        function initMusicToggle() {
+            const musicToggle = document.getElementById('musicToggle');
+            const musicIcon = document.getElementById('musicIcon');
+            let isPlaying = false;
+            let audio = null;
+            
+            // Create audio element
+            audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-clear-sky-479.mp3');
+            audio.loop = true;
+            audio.volume = 0.3; // Soft volume
+            
+            musicToggle.addEventListener('click', function() {
+                if (!isPlaying) {
+                    // Play music
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        musicIcon.className = 'fas fa-volume-up';
+                        musicToggle.style.backgroundColor = 'var(--accent-color)';
+                        musicToggle.style.color = 'var(--soft-white)';
+                    }).catch(error => {
+                        console.log("Audio playback failed:", error);
+                        alert("Please click the music button again to play soft background music.");
+                    });
+                } else {
+                    // Pause music
+                    audio.pause();
+                    isPlaying = false;
+                    musicIcon.className = 'fas fa-music';
+                    musicToggle.style.backgroundColor = 'var(--warm-beige)';
+                    musicToggle.style.color = 'var(--accent-color)';
+                }
+            });
+        }
+
+        // Gentle button interaction
+        function initGentleButton() {
+            const gentleButton = document.getElementById('gentleButton');
+            const responseMessage = document.getElementById('responseMessage');
+            
+            gentleButton.addEventListener('click', function() {
+                // Add glow animation
+                gentleButton.classList.add('active');
+                
+                // Show response message after a short delay
+                setTimeout(() => {
+                    responseMessage.textContent = "Jawab jo bhi ho, tumhari respect aur jagah hamesha rahegi.";
+                    responseMessage.classList.add('show');
+                    
+                    // Change button text gently
+                    setTimeout(() => {
+                        gentleButton.innerHTML = 'Thank you for listening 🤍';
+                        gentleButton.classList.remove('active');
+                    }, 1500);
+                }, 800);
+            });
+        }
+
+        // Scroll progress indicator
+        function initScrollProgress() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            
+            window.addEventListener('scroll', function() {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                scrollProgress.style.width = scrolled + '%';
+            });
+        }
+
+        // Show floating line with delay
+        function showFloatingLine() {
+            setTimeout(() => {
+                const floatingLine = document.getElementById('floatingLine');
+                floatingLine.style.animation = 'fadeInLine 3s ease forwards';
+            }, 4000);
+        }
+
+        // Setup staggered animations for elements
+        function setupStaggerAnimations() {
+            // Apply staggered animation class to elements in each section
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach((section, sectionIndex) => {
+                if (sectionIndex > 0) { // Skip hero section
+                    const animatedElements = section.querySelectorAll('.section-title, .message-box, .apology-card, .interaction-container, .promise-container, .closing-container');
+                    
+                    animatedElements.forEach((element, index) => {
+                        element.classList.add('stagger-item');
+                        element.style.animationDelay = `${0.3 + (index * 0.2)}s`;
+                    });
+                }
+            });
+        }
+
+        // Add a gentle scroll animation when clicking navigation dots (if we had any)
+        // This creates a smooth experience when manually scrolling
+        let isScrolling = false;
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    // You could add parallax or other scroll effects here
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+
+        // Add a subtle effect when the page is resized
+        window.addEventListener('resize', function() {
+            // Reset animations on resize for smoother experience
+            const floatingLine = document.getElementById('floatingLine');
+            floatingLine.style.animation = 'none';
+            
+            setTimeout(() => {
+                floatingLine.style.animation = 'fadeInLine 3s ease forwards';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
